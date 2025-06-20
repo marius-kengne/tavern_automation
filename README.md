@@ -1,7 +1,4 @@
 # tavern_automation
-# tavern_automation
-# tavern_automation
-# Tavern Automation
 
 This repository shows how to test an API using [Tavern](https://tavern.dev/).
 All test suites live in the `tests/` directory. The application under test is
