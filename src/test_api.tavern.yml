@@ -1,0 +1,36 @@
+test_name: Make sure server saves and returns a number correctly
+
+stages:
+
+  - name: post a quote
+    request:
+      url: http://localhost:5000/quotes
+      method: POST
+      headers:
+        content-type: application/json
+      json:
+        id: 10
+        author: "takam joslin"
+        quote: "the best cooker"
+    response:
+      status_code: 200
+      json:
+        author: "takam joslin"
+        quote: "the best cooker"
+      strict: false
+
+  - name: get quotes
+    request:
+      url: http://localhost:5000/quotes/1
+      method: GET
+      headers:
+        content-type: application/json
+    response:
+      status_code: 200
+      json:
+        author: "Eleanor Roosevelt"
+        quote: "I am who I am today because of the choices I made yesterday."
+      strict: false
+      # On retire la vérification stricte du header content-type
+      # headers:
+      #   content-type: application/json

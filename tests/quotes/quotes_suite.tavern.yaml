@@ -1,0 +1,28 @@
+test_name: Full quote flow (post + get)
+
+includes:
+  - !include ../../config/settings.yaml
+
+stages:
+  - name: post quote
+    request:
+      url: "{base_url}/quotes"
+      method: POST
+      headers: !include ../../config/default_headers.yaml
+      json: !include ../../data/quote1.json
+    response:
+      status_code: 200
+      json:
+        author: "takam joslin"
+      strict: false
+
+  - name: get quote
+    request:
+      url: "{base_url}/quotes/1"
+      method: GET
+      headers: !include ../../config/default_headers.yaml
+    response:
+      status_code: 200
+      json:
+        quote: "I am who I am today because of the choices I made yesterday."
+      strict: false

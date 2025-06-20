@@ -1,0 +1,15 @@
+test_name: Get existing quote
+
+includes:
+  - !include ../../config/settings.yaml
+
+stages:
+  - name: get quote
+    request:
+      url: "{base_url}/quotes/1"
+      method: GET
+      headers: !include ../../config/default_headers.yaml
+    response:
+      status_code: 200
+      json: !include ../../data/expected_quote1.json
+      strict: false

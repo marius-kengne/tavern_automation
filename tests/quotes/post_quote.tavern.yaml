@@ -1,0 +1,18 @@
+test_name: Post a quote and check response
+
+includes:
+  - !include ../../config/settings.yaml
+
+stages:
+  - name: post quote
+    request:
+      url: "{base_url}/quotes"
+      method: POST
+      headers: !include ../../config/default_headers.yaml
+      json: !include ../../data/quote1.json
+    response:
+      status_code: 200
+      json:
+        author: "takam joslin"
+        quote: "the best cooker"
+      strict: false

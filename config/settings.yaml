@@ -1,0 +1,4 @@
+variables:
+  base_url: "http://localhost:5000"
+  default_headers:
+    content-type: "application/json"
